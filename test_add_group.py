@@ -5,12 +5,12 @@ from selenium.common.exceptions import NoAlertPresentException
 from group import Group
 import unittest
 
-class UntitledTestCase2(unittest.TestCase):
+class TestAddGroup(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
 
-    def test_untitled_test_case2(self):
+    def test_add_group(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, "Admin", "secret")
@@ -18,7 +18,7 @@ class UntitledTestCase2(unittest.TestCase):
         self.to_group_page(wd)
         self.logout(wd)
 
-    def test_untitled_test_case_empty(self):
+    def test_add_empty_group(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, "Admin", "secret")

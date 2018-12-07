@@ -7,12 +7,12 @@ from contact import Contact
 import unittest
 
 
-class UntitledTestCase(unittest.TestCase):
+class TestAddContact(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
 
-    def test_untitled_test_case(self):
+    def test_add_contact(self):
         driver = self.driver
         self.open_home_page(driver)
         self.login(driver)
