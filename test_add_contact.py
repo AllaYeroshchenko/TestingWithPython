@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 from contact import Contact
 import unittest
 
@@ -14,7 +12,6 @@ class TestAddContact(unittest.TestCase):
 
     def test_add_contact(self):
         driver = self.driver
-        self.open_home_page(driver)
         self.login(driver)
         self.add_contact(driver, Contact(firstname="Alla", lastname="Yeroshchenko", nickname="Alochka", title="title",
                                          company="company", address="address", home="home", mobile="111111", work="222222",
@@ -55,40 +52,17 @@ class TestAddContact(unittest.TestCase):
         driver.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
     def login(self, driver):
+        self.open_home_page(driver)
         driver.find_element_by_name("user").clear()
         driver.find_element_by_name("user").send_keys("admin")
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys("secret")
         driver.find_element_by_xpath("//input[@value='Login']").click()
 
+
     def open_home_page(self, driver):
         driver.get("http://localhost/addressbook/")
 
-    def is_element_present(self, how, what):
-        try:
-            self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e:
-            return False
-        return True
-
-    def is_alert_present(self):
-        try:
-            self.driver.switch_to_alert()
-        except NoAlertPresentException as e:
-            return False
-        return True
-
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally:
-            self.accept_next_alert = True
 
     def tearDown(self):
         self.driver.quit()

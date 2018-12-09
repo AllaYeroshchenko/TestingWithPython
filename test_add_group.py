@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 from group import Group
 import unittest
 
@@ -12,18 +10,14 @@ class TestAddGroup(unittest.TestCase):
 
     def test_add_group(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, "Admin", "secret")
         self.create_group(wd, Group("Group1", "Header1", "footer1"))
-        self.to_group_page(wd)
         self.logout(wd)
 
     def test_add_empty_group(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, "Admin", "secret")
         self.create_group(wd, Group("", "", ""))
-        self.to_group_page(wd)
         self.logout(wd)
 
 
@@ -47,9 +41,12 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("group_footer").send_keys(group.footer)
         # submit group creation
         wd.find_element_by_name("submit").click()
+        self.to_group_page(wd)
+
 
     def login(self, wd, login, password):
         # login
+        self.open_home_page(wd)
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(login)
         wd.find_element_by_name("pass").clear()
@@ -59,16 +56,6 @@ class TestAddGroup(unittest.TestCase):
     def open_home_page(self, wd):
         # open homepage
         wd.get("http://localhost/addressbook/group.php")
-
-    def is_element_present(self, how, what):
-        try: self.wd.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.wd.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
 
     
     def tearDown(self):
