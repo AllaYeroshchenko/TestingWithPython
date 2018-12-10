@@ -13,6 +13,7 @@ class SessionHelper:
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
+
     def logout(self):
         wd = self.app.wd
         # logout
