@@ -3,11 +3,20 @@ import pytest
 
 fixture = None
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def app(request):
     global fixture
-    fixture=Application()
-    fixture.session.login("Admin", "secret")
+    if fixture is None:
+        fixture=Application()
+        fixture.session.login("Admin", "secret")
+    else:
+        if not fixture.is_valid():
+            fixture = Application()
+            fixture.session.login("Admin", "secret")
+    return fixture
+
+@pytest.fixture(scope="session", autouse=True)
+def stop(request):
     def fin():
         fixture.session.logout()
         fixture.destroy()
