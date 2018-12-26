@@ -82,5 +82,5 @@ class ContactHelper:
         for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
             id = element.find_element_by_name("selected[]").get_attribute("value")
             text = element.find_element_by_xpath("//td[2]").text
-            contacts.append(Contact(firstname=text, id=id))
+            contacts.append(Contact(lastname=text, id=id))
         return contacts
