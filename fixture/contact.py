@@ -38,10 +38,10 @@ class ContactHelper:
         wd.find_element_by_name("fax").send_keys(contact.fax)
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(contact.byear)
+        #Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
+        #Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
+        #wd.find_element_by_name("byear").clear()
+        #wd.find_element_by_name("byear").send_keys(contact.byear)
 
 
     def add(self, contact):
@@ -125,7 +125,7 @@ class ContactHelper:
         homephone = wd.find_element_by_name("home").get_attribute("value")
         workphone = wd.find_element_by_name("work").get_attribute("value")
         mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
-        secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
+ #       secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
         address=wd.find_element_by_name("address").get_attribute("value")
         email = wd.find_element_by_name("email").get_attribute("value")
         email2 = wd.find_element_by_name("email2").get_attribute("value")
