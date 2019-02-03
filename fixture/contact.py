@@ -68,6 +68,35 @@ class ContactHelper:
         time.sleep(5)
         self.contact_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(id)
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        #time.sleep(5)
+        wd.switch_to_alert().accept()
+        time.sleep(5)
+        self.contact_cache = None
+
+    def edit_contact_by_id(self, contact, id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.open_contact_to_edit_by_id(id)
+        self.fill(contact)
+        wd.find_element_by_name("update").click()
+        self.contact_cache = None
+
+    def open_contact_to_edit_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        wd.find_element_by_xpath("//input[@id='%s']/parent::td/following-sibling::td[7]//img[@title='Edit']" % id).click()
+
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[id='%s']" % id).click()
+
+
     def edit_first_contact(self, contact):
         self.edit_contact_by_index(contact, 0)
 
