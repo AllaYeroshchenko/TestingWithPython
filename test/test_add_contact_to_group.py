@@ -16,7 +16,7 @@ def test_add_contact_to_group(app):
         app.contact.add(Contact(firstname="test", lastname="test", nickname="test", title="title",
                             company="company", address="address", home="home", mobile="111111", work="222222",
                             fax="333333", email="yeroshchenko@gmail.com", bday="17", bmonth="July", byear="2000"))
-        all_contacts_not_in_group = db.get_contacts_not_in_group()
+        all_contacts_not_in_group = db.get_contacts_not_in_group(group)
     contact=random.choice(all_contacts_not_in_group)
     app.contact.add_contact_to_group(group.id, contact)
     all_contacts_in_group.append(contact)
