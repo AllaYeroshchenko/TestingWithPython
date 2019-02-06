@@ -141,7 +141,7 @@ class ContactHelper:
                 all_emails = element.find_element_by_xpath(".//td[5]").text
                 all_phones = element.find_element_by_xpath(".//td[6]").text
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, address=address,
-                                                  all_emails=all_emails,  all_phones_from_home_page=all_phones))
+                                                  all_emails=all_emails,  all_phones=all_phones))
         return list(self.contact_cache)
 
 
