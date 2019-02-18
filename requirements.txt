@@ -1,6 +1,9 @@
 pytest
 selenium
+json
 jsonpickle
+os.path
+importlib
 pony
 pymysql
 mysql-connector-python-rf
