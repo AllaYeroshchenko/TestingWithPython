@@ -1,0 +1,83 @@
+Started by user admin
+Building in workspace D:\jenkins\workspace\Addressbook
+No credentials specified
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/AllaYeroshchenko/TestingWithPython # timeout=10
+Fetching upstream changes from https://github.com/AllaYeroshchenko/TestingWithPython
+ > git.exe --version # timeout=10
+ > git.exe fetch --tags --progress https://github.com/AllaYeroshchenko/TestingWithPython +refs/heads/*:refs/remotes/origin/*
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision b7e0856d0eec7333a06fa886167c831622c91216 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f b7e0856d0eec7333a06fa886167c831622c91216
+Commit message: "Task 22+"
+ > git.exe rev-list --no-walk b7e0856d0eec7333a06fa886167c831622c91216 # timeout=10
+[Addressbook] $ cmd.exe /c call C:\Users\ALLAYE~1\AppData\Local\Temp\shiningpanda7802507561540473650.bat
+
+D:\jenkins\workspace\Addressbook>pip install -r requirements.txt 
+Requirement already satisfied: pytest in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 1)) (4.3.0)
+Requirement already satisfied: selenium in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 2)) (3.141.0)
+Requirement already satisfied: jsonpickle in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 3)) (1.1)
+Requirement already satisfied: pony in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 4)) (0.7.9)
+Requirement already satisfied: pymysql in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 5)) (0.9.3)
+Requirement already satisfied: mysql-connector-python-rf in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 6)) (2.2.2)
+Requirement already satisfied: more-itertools>=4.0.0; python_version > "2.7" in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (6.0.0)
+Requirement already satisfied: setuptools in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (40.8.0)
+Requirement already satisfied: pluggy>=0.7 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (0.8.1)
+Requirement already satisfied: six>=1.10.0 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (1.12.0)
+Requirement already satisfied: colorama; sys_platform == "win32" in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (0.4.1)
+Requirement already satisfied: attrs>=17.4.0 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (18.2.0)
+Requirement already satisfied: atomicwrites>=1.0 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (1.3.0)
+Requirement already satisfied: py>=1.5.0 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (1.7.0)
+Requirement already satisfied: urllib3 in d:\jenkins\shiningpanda\jobs\8563dab3\virtualenvs\d41d8cd9\lib\site-packages (from selenium->-r requirements.txt (line 2)) (1.24.1)
+
+D:\jenkins\workspace\Addressbook>py.test test\test_add_group.py 
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.7.0, pluggy-0.8.1
+rootdir: D:\jenkins\workspace\Addressbook, inifile:
+collected 7 items
+
+test\test_add_group.py .......                                           [100%]
+
+========================= 7 passed in 145.75 seconds ==========================
+
+D:\jenkins\workspace\Addressbook>py.test test\test_add_contact.py 
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.7.0, pluggy-0.8.1
+rootdir: D:\jenkins\workspace\Addressbook, inifile:
+collected 7 items
+
+test\test_add_contact.py .......                                         [100%]
+
+========================== 7 passed in 70.27 seconds ==========================
+
+D:\jenkins\workspace\Addressbook>py.test test\test_del_group.py 
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.7.0, pluggy-0.8.1
+rootdir: D:\jenkins\workspace\Addressbook, inifile:
+collected 1 item
+
+test\test_del_group.py .                                                 [100%]
+
+========================== 1 passed in 25.12 seconds ==========================
+
+D:\jenkins\workspace\Addressbook>py.test test\test_del_contact.py 
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.7.0, pluggy-0.8.1
+rootdir: D:\jenkins\workspace\Addressbook, inifile:
+collected 1 item
+
+test\test_del_contact.py .                                               [100%]
+
+============================== warnings summary ===============================
+test/test_del_contact.py::test_del_contact
+  D:\jenkins\workspace\Addressbook\fixture\contact.py:77: DeprecationWarning: use driver.switch_to.alert instead
+    wd.switch_to_alert().accept()
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+==================== 1 passed, 1 warnings in 26.58 seconds ====================
+
+D:\jenkins\workspace\Addressbook>exit 0 
+Finished: SUCCESS
