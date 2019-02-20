@@ -1,9 +1,11 @@
 pytest
 selenium
-json
 jsonpickle
-os.path
 importlib
 pony
 pymysql
 mysql-connector-python-rf
+allure-pytest
+lxml-4.3.1-cp37-cp37m-win_amd64.whl
+json
+os.path
